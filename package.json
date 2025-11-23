@@ -1,0 +1,15 @@
+{
+  "name": "jagat-20250117",
+  "description": "jagat-20250117",
+  "version": "0.0.0",
+  "author": "小形克宏 <ogwata@vivliostyle.org>",
+  "scripts": {
+    "build": "vivliostyle build",
+    "preview": "vivliostyle preview"
+  },
+  "dependencies": {
+    "@vivliostyle/cli": "latest"
+  },
+  "license": "CC-BY-3.0",
+  "private": true
+}

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Web技術によるページ組版とVivliostyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Katsuhiro Ogata">
+    <link rel="stylesheet" type="text/css" href="themes/theme.css">
+  </head>
+  <body>
+    <section class="level1" aria-labelledby="web技術によるページ組版とvivliostyle">
+      <h1 id="web技術によるページ組版とvivliostyle">Web技術によるページ組版とVivliostyle</h1>
+      <p>小形克宏<br>Vivliostyle Foundation<br>2025年1月17日<br>XML・CSS組版の動向と生成AI活用<br></p>
+    </section>
+    <section class="level1" aria-labelledby="このスライドはvivliostyle-cliで作成しました">
+      <h1 id="このスライドはvivliostyle-cliで作成しました">※このスライドはVivliostyle CLIで作成しました</h1>
+    </section>
+    <section class="level1" aria-labelledby="css組版とは">
+      <h1 id="css組版とは">CSS組版とは？</h1>
+      <ul>
+        <li>HTMLとCSSにより文字・図版・写真などをページ上に配置すること</li>
+        <li>ページ組版用CSS仕様を実装することで実現
+          <ul>
+            <li><a href="https://www.w3.org/TR/css-page-3/">CSS Paged Media Module Level 3</a>
+              <ul>
+                <li>ページネーション（ページによる区切り）のサポート</li>
+              </ul>
+            </li>
+            <li><a href="https://www.w3.org/TR/css-gcpm-3/">CSS Generated Content for Paged Media Module</a>
+              <ul>
+                <li>版面を構成する柱、ノンブル等をサポート</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Vivliostyleはその実装の一つ</li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="さまざまなcss組版アプリケーション">
+      <h1 id="さまざまなcss組版アプリケーション">さまざまなCSS組版アプリケーション</h1>
+      <ul>
+        <li><a href="https://www.antenna.co.jp/AHF/">Antenna House Formatter</a></li>
+        <li><a href="https://publisher.bfo.com/">BFO Publisher</a></li>
+        <li><a href="https://docraptor.com/">DocRaptor</a></li>
+        <li><a href="https://pagedjs.org/">Paged.js★</a></li>
+        <li><a href="https://www.pdfreactor.com/">PDFreactor</a></li>
+        <li><a href="https://www.princexml.com/">Prince</a></li>
+        <li><a href="https://typeset.sh/">Typeset.sh</a></li>
+        <li><a href="https://weasyprint.org/">WeasyPrint★</a></li>
+      </ul>
+      <p>（★はオープンソース⁠）⁠</p>
+    </section>
+    <section class="level1" aria-labelledby="他と比べたvivliostyleの特徴">
+      <h1 id="他と比べたvivliostyleの特徴">他と比べたVivliostyleの特徴</h1>
+      <ul>
+        <li><strong>オープンソースであること</strong>
+          <ul>
+            <li><a href="https://gpl.mhatta.org/agpl.ja.html">AGPLライセンス</a></li>
+            <li>実装を公開する場合は、ソースコードの公開が必要</li>
+          </ul>
+        </li>
+        <li><strong>ブラウザーのポリフィルであること</strong>
+          <ul>
+            <li>ポリフィル：ブラウザが未実装の機能を追加するコード</li>
+            <li>ブラウザーと一体になって動作する</li>
+            <li>ブラウザが実装した最新のCSS仕様がVivliostyleでも利用可能に</li>
+          </ul>
+        </li>
+        <li><strong>縦書きを始めとする日本語組版に強いこと</strong>
+          <ul>
+            <li>CSS仕様の国際化はこの10年で飛躍的に向上</li>
+            <li>日本語組版の仕様化もかなり進んだ</li>
+            <li>そうしたCSS仕様をVivliostyleは意欲的に実装</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="プロダクトvivliostyle-viewer">
+      <h1 id="プロダクトvivliostyle-viewer">プロダクト①：Vivliostyle Viewer</h1>
+      <ul>
+        <li>機能：組版エンジンとプレビュー
+          <ul>
+            <li>HTMLファイルを読み込み、ページ組版し、プレビューを出力する</li>
+          </ul>
+        </li>
+        <li>アプリケーションではなくライブラリ
+          <ul>
+            <li>組版エンジンを独立させることで、柔軟な開発が可能に</li>
+          </ul>
+        </li>
+      </ul>
+      <figure>
+        <img src="./images/fig-1.png" alt="Vivliostyle Viewerの構成" width="50%">
+        <figcaption aria-hidden="true">Vivliostyle Viewerの構成</figcaption>
+      </figure>
+    </section>
+    <section class="level1" aria-labelledby="プロダクトvivliostyle-cli">
+      <h1 id="プロダクトvivliostyle-cli">プロダクト②：Vivliostyle CLI</h1>
+      <ul>
+        <li>機能
+          <ul>
+            <li>MarkdownをHTMLに変換すること（VFM）</li>
+            <li>スタイルを切り替えること（Themes）</li>
+            <li>複数の原稿から本の形にまとめること</li>
+            <li>HTMLとCSSを処理し、ページに組み立てること（Vivliostyle.js）</li>
+            <li>CSS組版の結果をプレビューすること（Vivliostyle Viewer）</li>
+            <li>PDFとEPUBを出力すること</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="プロダクトvivliostyle-cli-1">
+      <h1 id="プロダクトvivliostyle-cli-1">プロダクト②：Vivliostyle CLI</h1>
+      <figure>
+        <img src="./images/fig-2.svg" alt="Vivliostyle CLIの構成" width="100%">
+        <figcaption aria-hidden="true">Vivliostyle CLIの構成</figcaption>
+      </figure>
+    </section>
+    <section class="level1" aria-labelledby="プロダクトvivliostyle-pub">
+      <h1 id="プロダクトvivliostyle-pub">プロダクト②：Vivliostyle Pub</h1>
+      <ul>
+        <li>Vivliostyle CLIをクラウド上に置いたもの</li>
+        <li>加えてユーザー管理などの機構を追加したWebアプリ</li>
+      </ul>
+      <figure>
+        <img src="./images/fig-3.svg" alt="Vivliostyle Pubの構成" width="82%">
+        <figcaption aria-hidden="true">Vivliostyle Pubの構成</figcaption>
+      </figure>
+    </section>
+    <section class="level1" aria-labelledby="ユースケース同人誌の制作">
+      <h1 id="ユースケース同人誌の制作">ユースケース①：同人誌の制作</h1>
+      <ul>
+        <li>VivlioStyleとRehype/RemarkではじめるCSS組版による同人誌制作（げぐはつ書房）
+          <ul>
+            <li>ギフトリンク <a href="https://booth.pm/gifts/efc1bd78-75f4-4b22-85d8-434183b7d8b5">https://booth.pm/gifts/efc1bd78-75f4-4b22-85d8-434183b7d8b5</a> （pixivアカウント必要）</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        <img src="./images/fig-4.png" width="22%">
+      </p>
+    </section>
+    <section class="level1" aria-labelledby="商業出版での単行本制作リブロワークス">
+      <h1 id="商業出版での単行本制作リブロワークス">商業出版での単行本制作（リブロワークス）</h1>
+      <ul>
+        <li><a href="https://libroworks.co.jp/?tag=vivliostyle">https://libroworks.co.jp/?tag=vivliostyle</a></li>
+        <li><a href="https://amzn.asia/d/ik2K1Ob">Web技術で「本」が作れるCSS組版Vivliostyle入門</a></li>
+        <li><a href="https://amzn.asia/d/4ZVM4Ys">Juliaではじめる数値計算入門</a></li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="電子書店のビューワシンクロナス">
+      <h1 id="電子書店のビューワシンクロナス">電子書店のビューワ（シンクロナス）</h1>
+      <ul>
+        <li><a href="https://www.synchronous.jp/ud/content/613ae89077656127a1000000">歴史ノ部屋（乃至政彦）</a></li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="電子書籍の校正三陽社">
+      <h1 id="電子書籍の校正三陽社">電子書籍の校正（三陽社）</h1>
+      <ul>
+        <li><a href="https://vivliostyle.org/viewer/#src=https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol2/index.html&#x26;bookMode=true&#x26;f=epubcfi(/10!)">EPUB ファイルから Vivliostyle で PDF を作りたい！</a></li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="複数の船舶との文書共有ファーストマリンサービス株式会社">
+      <h1 id="複数の船舶との文書共有ファーストマリンサービス株式会社">複数の船舶との文書共有（ファーストマリンサービス株式会社）</h1>
+      <ul>
+        <li><a href="https://github.com/MurakamiShinyu/fmspub-test">fmspub-test</a></li>
+        <li><a href="https://vivliostyle-pub-develop.vercel.app/github/MurakamiShinyu/fmspub-test?branch=main">Vivliostyle Pub</a></li>
+      </ul>
+      <p>
+        <img src="./images/fig-5.jpg" width="50%">
+      </p>
+    </section>
+    <section class="level1" aria-labelledby="vivliostyleの課題と未来">
+      <h1 id="vivliostyleの課題と未来">Vivliostyleの課題と未来</h1>
+      <ul>
+        <li>Webアプリのメリットはインストールなしに手軽に使えること</li>
+        <li>ところがVivliostyle PubはCSSの知識がないと本が作れない</li>
+        <li>CSSを知らなくても使えるようVivliostyle Pubのアップデートに着手</li>
+        <li>どうかご期待ください！</li>
+      </ul>
+    </section>
+  </body>
+</html>
