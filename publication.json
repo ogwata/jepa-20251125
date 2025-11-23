@@ -5,14 +5,14 @@
   ],
   "type": "Book",
   "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
-  "name": "Web技術によるページ組版とVivliostyle",
+  "name": "あの電子書籍リーダーの表示性能が知りたい!",
   "author": "小形克宏 <ogwata@vivliostyle.org>",
   "inLanguage": "ja",
-  "dateModified": "2025-01-17T01:59:43.352Z",
+  "dateModified": "2025-11-25T01:59:43.352Z",
   "readingOrder": [
     {
       "url": "manuscript.html",
-      "name": "Web技術によるページ組版とVivliostyle"
+      "name": "あの電子書籍リーダーの表示性能が知りたい!"
     }
   ],
   "resources": [],
