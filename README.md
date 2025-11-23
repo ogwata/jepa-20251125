@@ -1,6 +1,6 @@
-# Jagat 20250117
+# jepa-20251125
 
-Web技術によるページ組版とVivliostyle
+あの電子書籍リーダーの表示性能が知りたい!　 電子書籍『EPUBリーダー表示テスト』活用術
 
 > created by [create-book](https://github.com/vivliostyle/create-book).
 
