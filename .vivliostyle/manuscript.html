@@ -8,8 +8,19 @@
   <body>
     <section class="level1">
       <h1 id=""></h1>
-      <p><span style="font-size:2.5em; font-weight: bold;">あの電子書籍リーダーの<br>表示性能が知りたい!</span><br><span style="font-size: 1.5em;">電子書籍『EPUBリーダー表示テスト』活用術</span></p>
+      <p><span style="font-size:2.5em; font-weight: bold;">あの電子書籍リーダーの<br>表示性能が知りたい!</span><br><span style="font-size: 1.5em; font-weight: bold;">電子書籍『EPUBリーダー表示テスト』活用術</span></p>
       <p style="position: absolute; bottom: 0; left: 0; width: 100%;">小形克宏（次世代パブリッシング研究会）<br>2025年11月25日<br>Advanced Publishing Lab.（APL）＋日本電子出版協会（JEPA）共催セミナー<br></p>
+    </section>
+    <section class="level1" aria-labelledby="自己紹介">
+      <h1 id="自己紹介">自己紹介</h1>
+      <ul>
+        <li>小形克宏（おがた　かつひろ）</li>
+        <li>一般社団法人ビブリオスタイル理事</li>
+        <li>CSS組版でワンソースから印刷用とEPUBが出力できるライブラリ<a href="https://vivliostyle.org/ja/">「Vivliostyle」</a>の開発団体</li>
+        <li>代表理事である村上真雄も、CSSテストの制作を担当した</li>
+        <li>EPUBリーダーテストの実施者として利益が相反するのは確か</li>
+        <li>しかし、GitHubリポジトリやテスト結果を公開することで、客観性の担保に努めた。</li>
+      </ul>
     </section>
     <section class="level1" aria-labelledby="イントロダクション">
       <h1 id="イントロダクション">イントロダクション</h1>
@@ -21,14 +32,81 @@
     <section class="level1" aria-labelledby="これまでの経緯">
       <h1 id="これまでの経緯">これまでの経緯①</h1>
       <ul>
-        <li>『EPUBリーダー表示テスト報告書（2023年度）』のはじまり</li>
+        <li>『EPUBリーダー表示テスト報告書（2023年度）』のはじまり
+          <ul>
+            <li>（以下、2003年調査）</li>
+          </ul>
+        </li>
       </ul>
     </section>
     <section class="level1" aria-labelledby="これまでの経緯-1">
-      <h1 id="これまでの経緯-1">これまでの経緯①</h1>
+      <h1 id="これまでの経緯-1">これまでの経緯②</h1>
       <ul>
-        <li></li>
+        <li>2003年調査でわかったこと
+          <ul>
+            <li>EPUBリーダーとレイアウトエンジン
+              <ul>
+                <li>モダンブラウザー系と独自エンジン系</li>
+                <li>ブラウザのレイアウトエンジンを使うメリット・デメリット</li>
+              </ul>
+            </li>
+            <li>日本の電子書店の多くは独自エンジン系</li>
+          </ul>
+        </li>
       </ul>
+    </section>
+    <section class="level1" aria-labelledby="これまでの経緯-2">
+      <h1 id="これまでの経緯-2">これまでの経緯③</h1>
+      <ul>
+        <li>JEPAセミナーに登壇（2024年4月24日）
+          <ul>
+            <li><a href="https://www.jepa.or.jp/sem/20240424/">各社のEPUBリーダーは、現行CSS仕様やアクセシビリティをどれだけサポートしているのか？〈日本電子出版協会（2024年4月24日）〉</a></li>
+          </ul>
+        </li>
+        <li>ところが反響はたった2つ……
+          <ul>
+            <li><a href="https://hon.jp/news/1.0/0/47244#EPUBCSS2024424">週刊出版ニュースまとめ＆コラム #617</a></li>
+            <li>ポット出版沢辺社長→出版のお誘いが！</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="これまでの経緯-3">
+      <h1 id="これまでの経緯-3">これまでの経緯④</h1>
+      <ul>
+        <li>2023年調査の反省点
+          <ul>
+            <li>①電子書店は出版社が作ったEPUBをそのまま売る訳ではない
+              <ul>
+                <li>本当のことは、実際に販売しないと分からない</li>
+                <li><strong>→では、実際に電子書店に流通させてみよう！</strong></li>
+              </ul>
+            </li>
+            <li>②テスト結果を見ただけでCSS仕様通りか否か判断できない
+              <ul>
+                <li><strong>→正しい表示のスクリーンショットを紙で出版しよう</strong></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="epubリーダー表示テストの発刊">
+      <h1 id="epubリーダー表示テストの発刊">『EPUBリーダー表示テスト』の発刊</h1>
+      <figure>
+        <img src="images/fig-1.png" alt="EPUBリーダー表示テスト" width="30%">
+        <figcaption aria-hidden="true">EPUBリーダー表示テスト</figcaption>
+      </figure>
+    </section>
+    <section class="level1" aria-labelledby="epubリーダー表示テスト正解集の発刊">
+      <h1 id="epubリーダー表示テスト正解集の発刊">『EPUBリーダー表示テスト正解集』の発刊</h1>
+      <figure>
+        <img src="images/fig-2.png" alt="EPUBリーダー表示テスト正解集" width="30%">
+        <figcaption aria-hidden="true">EPUBリーダー表示テスト正解集</figcaption>
+      </figure>
+    </section>
+    <section class="level1" aria-labelledby="epubリーダー表示テストで分かったこと">
+      <h1 id="epubリーダー表示テストで分かったこと">『EPUBリーダー表示テスト』で分かったこと</h1>
     </section>
   
 
