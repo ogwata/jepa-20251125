@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Web技術によるページ組版とVivliostyle ', // populated into `publication.json`, default to `title` of the first entry or `name` in `package.json`.
+  title: 'あの電子書籍リーダーの表示性能が知りたい!', // populated into `publication.json`, default to `title` of the first entry or `name` in `package.json`.
   author: '小形克宏 <ogwata@vivliostyle.org>', // default to `author` in `package.json` or undefined.
 language: 'ja', // default to undefined.
   // size: 'A4', // paper size.
@@ -15,7 +15,7 @@ language: 'ja', // default to undefined.
   ], // `entry` can be `string` or `object` if there's only single markdown file.
   // entryContext: './manuscripts', // default to '.' (relative to `vivliostyle.config.js`).
   output: [
-    'jagat-20250117.pdf',
+    'jepa-20251125.pdf',
     {
       path: './book',
       format: 'webpub',
