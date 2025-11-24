@@ -111,13 +111,70 @@ Advanced Publishing Lab.（APL）＋日本電子出版協会（JEPA）共催セ�
   3. 表示されたテストの結果を本フォームに記入する
 - 参考：テスト内容を解説した書籍、『EPUBリーダー表示テスト正解集』（次世代パブリッシング研究会、2025年、ポット出版、2,300円）を参照するとテストがやり易いでしょう
 
-# ①電子書籍リーダー表示テスト（2025）で分かること
+# このテストで、こんなことが分かる
 
-- 最後に、[①電子書籍リーダー表示テスト（2025）](https://forms.gle/C6yzzC5ybs8fjbWx6)の内容について報告します
-- 今回公開するテストに先行しておこなった、プレビューテストの結果を報告
-- 対象とした電子書店は、最もシェアが高いKindleストア
+- 最後に、[①電子書籍リーダー表示テスト（2025）](https://forms.gle/C6yzzC5ybs8fjbWx6)（**CSS仕様適合性テスト**）の具体的な内容について説明
+- 今回公開するテストに先行しておこなった、プレビューテストの結果報告
+- テスト対象とした電子書店は、最もシェアが高いKindleストア
 - テストに使ったデバイスは、iPhone、Android、Windows、Kindle（第11世代）、Kindle専用端末の5種
   - 時間がなく、Macではテストができなかったことに注意
 - ここで報告するテストは①だけで、②④はこの後で発表する田嶋氏、③は仁科氏が説明
 - 一人でも多くの人に参加してもらうために、「例えばこんなことが分かる」を説明したい
+
+# Kindle for PC（Windows）では<br/>縦書きができない場合がある
+
+<div class="side-by-side">
+<img src="images/fig-3.png" alt="CSS Writing Modes Level 3 writing-mode プロパティ" width="40%" />
+<img src="images/fig-3-2.png" alt="和欧間自動アキ指定（タテ）" width="40%" />
+</div>
+
+
+# アクセシビリティからみたKindle
+
+- 現在の電子書籍リーダーにとって「喫緊の課題」がアクセシビリティ対応のはず
+- そこで今回のCSS仕様適合性テストで、5端末全てがNGだったCSSルール（全70）の中から、[“EPUB Accessibility 1.1”](https://www.w3.org/TR/epub-a11y-11/) 及び [“Web Content Accessibility Guidelines (WCAG) 2.2”](https://waic.jp/translations/WCAG22/) への対応のために、とくに必要なルールを4つ紹介します
+
+
+# `unicode-range` 記述子と`orphans` / `widows` プロパティの未サポート
+
+
+<figure style="float: left; width: 56%; margin: 0;">
+  <img src="images/fig-4.png" alt="" style="width: 100%;">
+  <figcaption>CSS Fonts Level 3 unicode-range 記述子</figcaption>
+</figure>
+
+<figure style="float: right; width: 42%; margin: 0;">
+  <img src="images/fig-5.png" alt="" style="width: 100%;">
+  <figcaption>CSS Fragmentation Module Level 3 orphans, widows プロパティ</figcaption>
+</figure>
+
+<div style="clear: both;"></div>
+
+### `unicode-range` , `orphans` / `widows`とアクセシビリティ
+
+| CSS要素 | 関連するWCAG達成基準 | EPUB A11Y 1.1における役割 |
+| :--- | :--- | :--- |
+| **1. `unicode-range` 記述子** | 1.1.1 (非テキストコンテンツ) | **【情報保障】** コンテンツ内の特殊な文字が欠落せず表示されることを保証し、**文字化けを防ぐ**。 |
+| **2. `orphans` / `widows` プロパティ** | 1.4.8 (視覚的提示) | **【認知負荷の軽減】** 段落の不自然な分断を防ぐことで、読者の視覚的な追従負担を減らし、**可読性を高める**。 |
+
+
+# 論理プロパティとCSS変数の未サポート
+
+<div class="side-by-side">
+<img src="images/fig-6.png" alt="CSS Logical Properties and Values Level 1 論理プロパティ padding-block" width="50%" />
+<img src="images/fig-7.png" alt="CSS Fragmentation Module Level 3 orphans, widows プロパティ" width="50%" />
+</div>
+
+
+
+### 論理プロパティとCSS変数とアクセシビリティ
+
+| CSS要素 | 関連するWCAG達成基準 | EPUB A11Y 1.1における役割 |
+| :--- | :--- | :--- |
+| **3. 論理プロパティ** (例: `padding-block`) | 1.3.1 (情報及び関係性) | **【構造的適応性】** 物理的指定から論理的指定へ移行することで、**縦書き・横書きのどちらでも一貫した構造**と余白を維持する。 |
+| **4. CSS変数** (Custom Properties) | 1.4.3 (コントラスト) / 1.4.8 (視覚的提示) | **【テーマの柔軟性】** ハイコントラストやフォントサイズ調整など、**ユーザーによるテーマの一括切り替え**を容易にし、ユーザースタイルを尊重する。 |
+
+
+# おしまい。田嶋さんの報告につづきます
+
 

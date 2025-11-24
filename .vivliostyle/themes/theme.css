@@ -38,3 +38,49 @@ figcaption {
   line-height: 1.5;
   margin-block-start: 0.5em;
 }
+/*
+ * ターゲット：section.level1 の中にある全てのテーブル
+ */
+section.level1 table {
+  /* 罫線を結合（二重線防止） */
+  border-collapse: collapse;
+  width: 100%;
+  /* 罫線がテーブル全体にも描画されるように設定 */
+  border: 1px solid #a0a0a0;
+  /* セクション内のテーブルの上下に余白を設ける */
+  margin-block: 1.5em;
+}
+
+/* ヘッダーセルとデータセルに罫線とパディングを設定 */
+section.level1 table th,
+section.level1 table td {
+  /* セルごとに罫線を引く */
+  border: 1px solid #a0a0a0;
+  /* セル内の余白 */
+  padding: 8px 12px;
+  /* (HTML属性で指定されているが、CSSで上書き可能) */
+  text-align: left;
+}
+
+/* ヘッダー行の可読性向上 */
+section.level1 table thead th {
+  /* ヘッダー部分を強調 */
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.side-by-side {
+  display: flex;
+  /* 横並びにする */
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 1.5em;
+  width: 100%;
+  margin: 1.5em auto;
+}
+
+.side-by-side img {
+  /* width="50%" はHTMLで指定済みだが、Flexアイテムとして伸縮性を制御 */
+  flex: 0 0 48%;
+  height: auto;
+}
