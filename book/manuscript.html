@@ -42,6 +42,13 @@
             <li>（以下、2003年調査）</li>
           </ul>
         </li>
+        <li>2022年12月定例会にてテストの実施が決定
+          <ul>
+            <li>2010年の「電子書籍元年」から10年以上がすぎ、ここで改めてEPUBリーダーが今どうなっているのか振り返る</li>
+            <li>同じ仕様に基づいているにもかかわらず、意外にEPUBリーダーによって挙動が異なる</li>
+            <li>皆で現状の可視化を図るのは、会の活動として面白いのでは</li>
+          </ul>
+        </li>
       </ul>
     </section>
     <section class="level1" aria-labelledby="これまでの経緯-1">
@@ -49,19 +56,56 @@
       <ul>
         <li>2003年調査でわかったこと
           <ul>
-            <li>EPUBリーダーとレイアウトエンジン
+            <li><a href="https://github.com/jagat-xpub/viewer-test-2023">EPUBリーダー表示テスト報告書（2023年度）</a></li>
+            <li>EPUBリーダーとレイアウトエンジンは以下の2つに二極分化
               <ul>
-                <li>モダンブラウザー系と独自エンジン系</li>
-                <li>ブラウザのレイアウトエンジンを使うメリット・デメリット</li>
+                <li><strong>モダンブラウザー系</strong>
+                  <ul>
+                    <li>ブラウザのエンジンを流用、最近のCSS仕様をサポート</li>
+                    <li>Apple「ブック」、楽天Koboのモバイルアプリ</li>
+                  </ul>
+                </li>
+                <li><strong>独自エンジン系</strong>
+                  <ul>
+                    <li>独自開発または古いエンジンを搭載し、CSSのサポートは限定的</li>
+                    <li>Amazon「Kindle」やhonto、Kinoppy、楽天KoboのPCアプリ・専用端末等</li>
+                  </ul>
+                </li>
               </ul>
             </li>
-            <li>日本の電子書店の多くは独自エンジン系</li>
           </ul>
         </li>
       </ul>
     </section>
     <section class="level1" aria-labelledby="これまでの経緯-2">
       <h1 id="これまでの経緯-2">これまでの経緯❸</h1>
+      <ul>
+        <li>日本の電子書店リーダーの多くは独自エンジン系</li>
+        <li>では、ブラウザのレイアウトエンジンを使わないメリット・デメリットは？
+          <ul>
+            <li><strong>メリット</strong>
+              <ul>
+                <li>自分達の過去の実装との互換性が確保できる</li>
+              </ul>
+            </li>
+            <li><strong>デメリット</strong>
+              <ul>
+                <li>ゼロからCSSを実装しなければならないので、時間と労力がかかる（一度作ったら抜本的アップデートがしづらい）</li>
+                <li>その結果、進化を続けるEPUB仕様と乖離してしまう</li>
+                <li>アクセシビリティに対応できない
+                  <ul>
+                    <li>EPUBに限らず、W3Cはアクセシビリティ対応を主な活動目標とする</li>
+                    <li>新しい技術を続々と仕様化している</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="これまでの経緯-3">
+      <h1 id="これまでの経緯-3">これまでの経緯❹</h1>
       <ul>
         <li>JEPAセミナーに登壇（2024年4月24日）
           <ul>
@@ -76,30 +120,22 @@
         </li>
       </ul>
     </section>
-    <section class="level1" aria-labelledby="これまでの経緯-3">
-      <h1 id="これまでの経緯-3">これまでの経緯❹</h1>
-      <ul>
-        <li><a href="https://honto.jp/ebook/pd-series_B-MBJ-21500-120584215-001-001.html">『じょうずなピラニアのつかまえ方』（ポット出版）</a>
-          <ul>
-            <li><strong>商品説明</strong>：EPUBリーダでの日本語表示確認のためのEPUBファイルです。このバージョンでは、表示できる文字をチェックするためのページが含まれています。文字コードセットを、JIS X 0213とAdobe Japan1-6のそれぞれで列挙し、表示の確認ができるようになっています。また、縦書時の記号類の回転状況をチェックできるページもあります。</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
     <section class="level1" aria-labelledby="これまでの経緯-4">
       <h1 id="これまでの経緯-4">これまでの経緯❺</h1>
       <ul>
-        <li><strong>［確認］</strong>2023年調査の反省点
+        <li><strong>［確認］</strong>2023年調査の反省点（今回の出版の原点）
           <ul>
             <li>⓵電子書店は出版社が作ったEPUBをそのまま売る訳ではない
               <ul>
-                <li>本当のテスト結果は、実際に販売しない限り分からない</li>
+                <li>テストファイルをサイドロードでテストするのには限界あり</li>
+                <li>本当のテスト結果は、実際にテストファイルを販売しない限り分からない</li>
                 <li><strong>→では、実際に電子書店に流通させてみよう！</strong></li>
               </ul>
             </li>
             <li>⓶テスト結果を見ただけでCSS仕様通りか否か判断できない
               <ul>
-                <li><strong>→正しい表示のスクリーンショットを紙で出版しよう</strong></li>
+                <li>テスト結果を見ただけでは、多くの人はそれがなにを意味するか分からない</li>
+                <li><strong>→正しい表示のスクリーンショットを紙で出版しよう！</strong></li>
               </ul>
             </li>
           </ul>
@@ -112,16 +148,30 @@
         <img src="images/fig-1.png" alt="EPUBリーダー表示テスト" width="100%">
       </figure>
       <ul>
-        <li>あの電子書店リーダーの表示性能を調べた！</li>
+        <li>意図や経緯については『EPUBリーダー表示テスト正解集』<a href="https://www.hanmoto.com/bd/isbn/9784866420301">概要ページ（版元ドットコム）</a>参照</li>
+        <li>多くの電子書店（例外は後述）にて、110円にて発売中
+          <ul>
+            <li><a href="https://amzn.asia/d/eYbp6nn">Amazon</a></li>
+            <li><a href="https://bookwalker.jp/deb9ed146b-7a31-4818-bfbf-9393d56adb31/">BOOK☆WALKER</a></li>
+            <li><a href="https://www.kinokuniya.co.jp/kinoppystore/detail.php?itemId=ID-EK-2210961100">Kinoppy</a></li>
+            <li><a href="https://play.google.com/store/books/details?pcampaignid=books_read_action&amp;id=9Fl_EQAAQBAJ">Googleブックス</a></li>
+            <li>などなど</li>
+          </ul>
+        </li>
+        <li><a href="https://github.com/jagat-xpub/epub-css-test/tree/main/epub-exp/99_epubtestmerge_v0">ソースコードはGitHubリポジトリで公開中</a></li>
         <li>（デモ）</li>
       </ul>
     </section>
     <section class="level1" aria-labelledby="epubリーダー表示テスト正解集の発刊">
       <h1 id="epubリーダー表示テスト正解集の発刊">『EPUBリーダー表示テスト正解集』の発刊</h1>
-      <figure>
-        <img src="images/fig-2.png" alt="EPUBリーダー表示テスト正解集" width="30%">
-        <figcaption aria-hidden="true">EPUBリーダー表示テスト正解集</figcaption>
+      <figure class="float-right-img">
+        <img src="images/fig-2.png" alt="EPUBリーダー表示テスト" width="95%">
       </figure>
+      <ul>
+        <li>テスト結果の正しい表示（正解）スクリーンショットを1冊にまとめたもの</li>
+        <li><a href="https://amzn.asia/d/2m9RD9r">紙の書籍</a>、及び<a href="https://amzn.asia/d/eYbp6nn">固定型EPUB</a>で出版</li>
+        <li>（デモ）</li>
+      </ul>
     </section>
     <section class="level1" aria-labelledby="epubリーダー表示テストを電子取次に納品した結果">
       <h1 id="epubリーダー表示テストを電子取次に納品した結果">『EPUBリーダー表示テスト』を<br>電子取次に納品した結果</h1>
@@ -132,39 +182,45 @@
             <li>楽天kobo</li>
           </ul>
         </li>
-        <li>SVG画像によるリジェクト
+        <li>SVG画像の非サポートによるリジェクト
           <ul>
             <li>コミックシーモア</li>
           </ul>
         </li>
+        <li><strong>これも実際に販売しなければ分からなかったこと</strong></li>
       </ul>
     </section>
     <section class="level1" aria-labelledby="電子書籍リーダー表示テスト2025の実施">
       <h1 id="電子書籍リーダー表示テスト2025の実施">電子書籍リーダー表示テスト（2025）の実施❶</h1>
       <ul>
         <li>
-          <p><a href="https://forms.gle/C6yzzC5ybs8fjbWx6">①電子書籍リーダー表示テスト（2025）</a></p>
-        </li>
-        <li>
-          <p><a href="https://forms.gle/Pbdh7PLrPh238mgd7">②電子書籍リーダー表示テスト（2025）</a></p>
-        </li>
-        <li>
-          <p><a href="https://forms.gle/YbzHYeAsuNJW7wdUA">③電子書籍リーダー表示テスト（2025）</a></p>
-        </li>
-        <li>
-          <p><a href="https://forms.gle/H6cXEwAbYR2PosWG6">④電子書籍リーダー表示テスト（2025）</a></p>
+          <p>テストを公開し、一人でも多くの人にテストへの参加を呼びかけることに</p>
           <ul>
-            <li>答えやすさを考慮して、テストファイルを4分割。</li>
-            <li>回答者は回答結果（スプレッドシート）も閲覧可能に設定</li>
-            <li>（デモ）</li>
+            <li><a href="https://forms.gle/C6yzzC5ybs8fjbWx6">①電子書籍リーダー表示テスト（2025）</a>
+              <ul>
+                <li>CSS仕様適合性テスト（156問／村上）</li>
+              </ul>
+            </li>
+            <li><a href="https://forms.gle/Pbdh7PLrPh238mgd7">②電子書籍リーダー表示テスト（2025）</a>
+              <ul>
+                <li>その他のEPUBリーダー表示テスト（16問／田嶋）</li>
+              </ul>
+            </li>
+            <li><a href="https://forms.gle/YbzHYeAsuNJW7wdUA">③電子書籍リーダー表示テスト（2025）</a>
+              <ul>
+                <li>EPUB内文字、画像、背景表示テスト（95問／仁科）</li>
+              </ul>
+            </li>
+            <li><a href="https://forms.gle/H6cXEwAbYR2PosWG6">④電子書籍リーダー表示テスト（2025）</a>
+              <ul>
+                <li>追加テスト（25問／田嶋）</li>
+              </ul>
+            </li>
           </ul>
           <h1 id="電子書籍リーダー表示テスト2025の実施-1">電子書籍リーダー表示テスト（2025）の実施❷</h1>
         </li>
         <li>
-          <p>趣旨：このテストは、電子書店・アプリケーション等におけるEPUBリーダーの性能調査を目的に、次世代パブリッシング研究会が実施するテストです。</p>
-        </li>
-        <li>
-          <p>応募資格：『EPUBリーダー表示テスト』（次世代パブリッシング研究会、ポット出版、2025年、110円）を実際に購入した上で、正確に、そして誠実に回答してくださる方なら、どなたでも応募できます（ニックネーム可）。なお、明らかにイタズラあるいは妨害と認められる回答は主催者が削除することを、あらかじめご了承ください。</p>
+          <p>応募資格：『EPUBリーダー表示テスト』（次世代パブリッシング研究会、ポット出版、2025年、110円）を<strong>実際に購入した上で</strong>、正確に、そして誠実に回答してくださる方なら、<strong>どなたでも応募できます（ニックネーム可）</strong>。なお、明らかにイタズラあるいは妨害と認められる回答は主催者が削除することを、あらかじめご了承ください。</p>
         </li>
         <li>
           <p>第1回期限：2025年3月31日</p>
@@ -173,9 +229,9 @@
         <li>
           <p>テストの手順</p>
           <ol>
-            <li>テスト対象の電子書店で前掲『EPUBリーダー表示テスト』を購入する</li>
-            <li>当該書籍を表示させる</li>
-            <li>表示されたテストの結果を本フォームに記入する</li>
+            <li>テスト対象の電子書店で前掲『EPUBリーダー表示テスト』を購入</li>
+            <li>当該電子書籍を表示させる</li>
+            <li>表示されたテストの結果をフォームに記入して送信する</li>
           </ol>
         </li>
         <li>
@@ -212,8 +268,7 @@
         <img src="images/fig-3-2.png" alt="和欧間自動アキ指定（タテ）" width="40%">
       </div>
       <ul>
-        <li>左：Kindle for PCでの①電子書籍リーダー表示テスト（2025）のテスト結果</li>
-        <li>右：同じく②におけるテスト結果</li>
+        <li><strong>左：</strong>Kindle for PCでの①電子書籍リーダー表示テスト（2025）のテスト結果／<strong>右：</strong>同じく②におけるテスト結果</li>
       </ul>
     </section>
     <section class="level1" aria-labelledby="縦書きがngokだった理由">
@@ -229,7 +284,7 @@
         <li>左は現在の正しい記法</li>
         <li>右は電書協ガイドのベンダープレフィックス（実装者固有の接頭辞）の記法
           <ul>
-            <li>電書協ガイドは最近改版したが、新版でもベンダープレフィックスは有効</li>
+            <li>新版でも電書協ガイドはベンダープレフィックスは有効</li>
             <li>EPUB 3.3（および各種Web標準）では、非推奨（Deprecated）</li>
           </ul>
         </li>
